@@ -9,7 +9,7 @@ function getRandomSymbol() {
 
 function setSymbolImage(elementId, symbolIndex) {
   const el = document.getElementById(elementId);
-  el.src = "img/symbol" + symbolIndex + ".png";
+  el.src = "img/symbol" + symbolIndex + ".PNG";
   el.dataset.symbol = symbolIndex;
 }
 
