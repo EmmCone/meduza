@@ -1,13 +1,13 @@
 let intervalLeft, intervalRight;
 let chosenSymbol = 0;
 
-window.onload = function() {
+window.onload = function () {
   const picker = document.getElementById("symbolPicker");
   for (let i = 0; i < 10; i++) {
     const img = document.createElement("img");
     img.src = "img/symbol" + i + ".PNG";
     img.dataset.symbol = i;
-    img.onclick = function() {
+    img.onclick = function () {
       chosenSymbol = parseInt(this.dataset.symbol);
       document.getElementById("center").src = "img/symbol" + chosenSymbol + ".PNG";
       document.getElementById("center").dataset.symbol = chosenSymbol;
