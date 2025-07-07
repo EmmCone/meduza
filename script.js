@@ -5,11 +5,11 @@ window.onload = function() {
   const picker = document.getElementById("symbolPicker");
   for (let i = 0; i < 10; i++) {
     const img = document.createElement("img");
-    img.src = "img/symbol" + i + ".png";
+    img.src = "img/symbol" + i + ".PNG";
     img.dataset.symbol = i;
     img.onclick = function() {
       chosenSymbol = parseInt(this.dataset.symbol);
-      document.getElementById("center").src = "img/symbol" + chosenSymbol + ".png";
+      document.getElementById("center").src = "img/symbol" + chosenSymbol + ".PNG";
       document.getElementById("center").dataset.symbol = chosenSymbol;
 
       document.querySelectorAll(".symbol-picker img").forEach(el => el.classList.remove("selected"));
@@ -26,7 +26,7 @@ function getRandomSymbol() {
 
 function setSymbolImage(id, symbolIndex) {
   const el = document.getElementById(id);
-  el.src = "img/symbol" + symbolIndex + ".png";
+  el.src = "img/symbol" + symbolIndex + ".PNG";
   el.dataset.symbol = symbolIndex;
 }
 
