@@ -1,22 +1,36 @@
-
-const symbols = [...Array(10).keys()];
 let intervalLeft, intervalRight;
-let centerSymbol;
+let chosenSymbol = 0;
+
+window.onload = function() {
+  const picker = document.getElementById("symbolPicker");
+  for (let i = 0; i < 10; i++) {
+    const img = document.createElement("img");
+    img.src = "img/symbol" + i + ".png";
+    img.dataset.symbol = i;
+    img.onclick = function() {
+      chosenSymbol = parseInt(this.dataset.symbol);
+      document.getElementById("center").src = "img/symbol" + chosenSymbol + ".png";
+      document.getElementById("center").dataset.symbol = chosenSymbol;
+
+      document.querySelectorAll(".symbol-picker img").forEach(el => el.classList.remove("selected"));
+      this.classList.add("selected");
+    };
+    if (i === 0) img.classList.add("selected");
+    picker.appendChild(img);
+  }
+};
 
 function getRandomSymbol() {
-  return symbols[Math.floor(Math.random() * symbols.length)];
+  return Math.floor(Math.random() * 10);
 }
 
-function setSymbolImage(elementId, symbolIndex) {
-  const el = document.getElementById(elementId);
-  el.src = "img/symbol" + symbolIndex + ".PNG";
+function setSymbolImage(id, symbolIndex) {
+  const el = document.getElementById(id);
+  el.src = "img/symbol" + symbolIndex + ".png";
   el.dataset.symbol = symbolIndex;
 }
 
 function start() {
-  centerSymbol = getRandomSymbol();
-  setSymbolImage("center", centerSymbol);
-
   intervalLeft = setInterval(() => {
     setSymbolImage("left", getRandomSymbol());
   }, 100);
@@ -33,17 +47,16 @@ function stop() {
   clearInterval(intervalRight);
 
   const left = parseInt(document.getElementById("left").dataset.symbol);
+  const center = parseInt(document.getElementById("center").dataset.symbol);
   const right = parseInt(document.getElementById("right").dataset.symbol);
-  const center = centerSymbol;
 
   const matches = [left, center, right].filter(s => s === center).length;
 
-  let message = "😐 Nic jsi nevyhrál.";
-
+  let message = "ð Nic jsi nevyhrÃ¡l.";
   if (matches === 2) {
-    message = "🎵 Vyhrál jsi 1 píseň!";
+    message = "ðµ VyhrÃ¡l jsi 1 pÃ­seÅ!";
   } else if (matches === 3) {
-    message = "🎉 Vyhrál jsi 2 písně!";
+    message = "ð VyhrÃ¡l jsi 2 pÃ­snÄ!";
   }
 
   document.getElementById("result").textContent = message;
