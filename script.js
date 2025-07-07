@@ -52,11 +52,11 @@ function stop() {
 
   const matches = [left, center, right].filter(s => s === center).length;
 
-  let message = "ð Nic jsi nevyhrÃ¡l.";
+  let message = "😐 Nic jsi nevyhrál.";
   if (matches === 2) {
-    message = "ðµ VyhrÃ¡l jsi 1 pÃ­seÅ!";
+    message = "🎵 Vyhrál jsi 1 píseň!";
   } else if (matches === 3) {
-    message = "ð VyhrÃ¡l jsi 2 pÃ­snÄ!";
+    message = "🎉 Vyhrál jsi 2 písně!";
   }
 
   document.getElementById("result").textContent = message;
