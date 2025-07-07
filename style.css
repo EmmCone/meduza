@@ -1,36 +1,42 @@
-
 body {
   font-family: sans-serif;
   text-align: center;
   background-color: #f0f8ff;
-  padding-top: 50px;
 }
-h1 {
-  font-size: 48px;
-  color: #5c5cff;
+
+.slot-machine {
+  margin: 20px 0;
 }
-.slots {
-  margin: 20px;
-}
+
 .slot {
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
   border: 4px solid #333;
   border-radius: 10px;
   margin: 10px;
   object-fit: contain;
 }
-.center-slot {
-  border-color: #ff69b4;
+
+.locked {
+  border-color: #ff1493 !important;
+  box-shadow: 0 0 15px #ff1493;
 }
-button {
-  margin-top: 20px;
-  padding: 10px 30px;
-  font-size: 20px;
+
+.symbol-picker img {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
-#result {
-  margin-top: 30px;
-  font-size: 24px;
-  color: #007700;
+
+.symbol-picker img.selected {
+  border-color: #ff1493;
+}
+
+.controls button {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 10px;
 }
